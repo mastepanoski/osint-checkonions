@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  tor:
+    image: dperson/torproxy
+    ports:
+      - "9050:9050"
+    restart: unless-stopped
+    
+  pdtm-scanner:
+    build: .
+    depends_on:
+      - tor
+    environment:
+      - HTTP_PROXY=socks5h://tor:9050
+      - HTTPS_PROXY=socks5h://tor:9050
+    volumes:
+      - ../onions_results.csv:/app/onions_results.csv:ro
+      - ./output:/app/output
+    networks:
+      - scanner-network
+    restart: "no"
+
+networks:
+  scanner-network:
+    driver: bridge

@@ -32,7 +32,7 @@ onions/
 
 2. **Ejecutar con Docker Compose**:
    ```bash
-   docker-compose up --build
+   docker compose up --build -d
    ```
 
 3. **Archivos generados**:
