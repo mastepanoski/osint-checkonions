@@ -1,0 +1,16 @@
+services:
+  tor:
+    image: dperson/torproxy
+    ports:
+      - "9050:9050"
+
+  onions_script:
+    build: .
+    depends_on:
+      - tor
+    environment:
+      - HTTP_PROXY=socks5h://tor:9050
+      - HTTPS_PROXY=socks5h://tor:9050
+    volumes:
+      - .:/app
+

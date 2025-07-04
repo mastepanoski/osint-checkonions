@@ -1,0 +1,30 @@
+# Generated output files
+onions_list.txt
+onions_list.json
+onions_results.csv
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Docker files
+.dockerignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
